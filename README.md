@@ -1,2 +1,2 @@
-# Computer_system_Verilog-
+# Computer_system_Verilog
 use MIPS Instruction Set
