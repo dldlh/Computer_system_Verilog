@@ -239,16 +239,23 @@ turn7seg t4(1'b1,inst[19:16],HEX2);
 turn7seg t5(1'b1,inst[15:12],HEX1);
 turn7seg t6(1'b1,inst[11:8],HEX0);
 */
+/*
 turn7seg tpc1(1'b1,pc[9:6],HEX1);
 turn7seg tpc2(1'b1,pc[5:2],HEX0);
 turn7seg mem(1'b1,memout[3:0],HEX2);
 turn7seg d(1'b1,memout[7:4],HEX3);
 turn7seg d2(1'b1,data[3:0],HEX4);
-assign LEDR[5:0] = aluout[5:0];
+*/
+turn7seg a2(1'b1,aluout[3:0],HEX1);
+turn7seg a1(1'b1,pc[5:2],HEX0);
+turn7seg a3(1'b1,aluout[7:4],HEX2);
+turn7seg a4(1'b1,aluout[11:8],HEX3);
+turn7seg a5(1'b1,aluout[15:12],HEX4);
+//assign LEDR[5:0] = aluout[5:0];
 //assign LEDR[9:6] = pc[3:0];
-assign LEDR[6] = wmem;
-assign LEDR[8:7] = aluout[13:12];
-assign LEDR[9] = enable;
+//assign LEDR[6] = wmem;
+//assign LEDR[8:7] = aluout[13:12];
+//assign LEDR[9] = enable;
 //assign LEDR[9:7] = debugdata[2:0];
 //assign LEDR[9:2] = debugdata[7:0];
 //assign LEDR[9:2] = ascii_kb;

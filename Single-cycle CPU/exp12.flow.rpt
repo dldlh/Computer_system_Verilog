@@ -1,5 +1,5 @@
 Flow report for exp12
-Wed Dec 18 22:24:55 2019
+Thu Dec 19 00:00:29 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Wed Dec 18 22:24:43 2019       ;
+; Flow Status                     ; Successful - Thu Dec 19 00:00:16 2019       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; exp12                                       ;
 ; Top-level Entity Name           ; exp12                                       ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSXFC6D6F31C6                              ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 1,489 / 41,910 ( 4 % )                      ;
-; Total registers                 ; 1265                                        ;
+; Logic utilization (in ALMs)     ; 1,474 / 41,910 ( 4 % )                      ;
+; Total registers                 ; 1267                                        ;
 ; Total pins                      ; 168 / 499 ( 34 % )                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 85,504 / 5,662,720 ( 2 % )                  ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/18/2019 22:23:05 ;
+; Start date & time ; 12/18/2019 23:58:40 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; exp12               ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 268891678444055.157667898517004        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 268891678444055.157668472005576        ; --            ; --          ; --         ;
 ; MISC_FILE                           ; instructionmem_bb.v                    ; --            ; --          ; --         ;
 ; MISC_FILE                           ; kernelmem_bb.v                         ; --            ; --          ; --         ;
 ; MISC_FILE                           ; clockmem_bb.v                          ; --            ; --          ; --         ;
@@ -96,11 +96,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:18     ; 1.0                     ; 4870 MB             ; 00:00:33                           ;
-; Fitter                    ; 00:01:09     ; 1.1                     ; 6725 MB             ; 00:02:53                           ;
-; Assembler                 ; 00:00:08     ; 1.0                     ; 4862 MB             ; 00:00:08                           ;
-; TimeQuest Timing Analyzer ; 00:00:11     ; 1.8                     ; 5216 MB             ; 00:00:19                           ;
-; Total                     ; 00:01:46     ; --                      ; --                  ; 00:03:53                           ;
+; Analysis & Synthesis      ; 00:00:17     ; 1.0                     ; 4870 MB             ; 00:00:32                           ;
+; Fitter                    ; 00:01:08     ; 1.1                     ; 6737 MB             ; 00:02:40                           ;
+; Assembler                 ; 00:00:08     ; 1.0                     ; 4856 MB             ; 00:00:08                           ;
+; TimeQuest Timing Analyzer ; 00:00:12     ; 1.8                     ; 5213 MB             ; 00:00:20                           ;
+; Total                     ; 00:01:45     ; --                      ; --                  ; 00:03:40                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

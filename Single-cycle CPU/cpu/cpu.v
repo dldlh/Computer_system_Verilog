@@ -6,7 +6,7 @@ input [31:0] mem;
 output [31:0]pc,alu,data;
 output wmem;
 wire [31:0] p4,bpc,npc,adr,ra,alua,alub,res,alu_mem;
-
+wire [31:0] sa = {27'b0,inst[10:6]};
 wire [3:0] aluc;
 wire [4:0]reg_dest,wn;
 wire [1:0]pcsource;
