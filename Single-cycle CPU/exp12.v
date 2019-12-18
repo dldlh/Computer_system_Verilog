@@ -167,8 +167,9 @@ clockmem cmem(.address_a(clockmem_addr),.clock_a(memclk),.wren_a(clockmem_enable
 
 ledrmem lmem(.address_a(ledrmem_addr),.clock_a(memclk),.wren_a(ledrmem_enable),.data_a(data),.address_b(1'b0),.clock_b(CLOCK_50),.wren_b(1'b0),.q_a(ledrmemout_cpu),.q_b(ledrmemout_ledr));
 
-//keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(memclk),.q_a(keyboardmemout_cpu),.clock_b(CLOCK_50),.wren_b(1'b1),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
-keyboardmem kbmem(.address_a(0),.wren_a(0),.clock_a(memclk),.q_a(debugdata),.clock_b(CLOCK_50),.wren_b(1'b1),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
+keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(memclk),.q_a(keyboardmemout_cpu),.data_a(data),.clock_b(CLOCK_50),.wren_b(enable),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
+//keyboardmem kbmem(.address_a(0),.wren_a(0),.clock_a(memclk),.q_a(debugdata),.clock_b(CLOCK_50),.wren_b(1'b1),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
+//keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(CLOCK_50),.q_a(keyboardmemout_cpu),.clock_b(CLOCK_50),.wren_b(1'b1),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
 
 
 vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b1),.q_b(vgamemout_vga));
@@ -240,11 +241,16 @@ turn7seg t6(1'b1,inst[11:8],HEX0);
 */
 turn7seg tpc1(1'b1,pc[9:6],HEX1);
 turn7seg tpc2(1'b1,pc[5:2],HEX0);
-//assign LEDR[5:0] = aluout[5:0];
+turn7seg mem(1'b1,memout[3:0],HEX2);
+turn7seg d(1'b1,memout[7:4],HEX3);
+turn7seg d2(1'b1,data[3:0],HEX4);
+assign LEDR[5:0] = aluout[5:0];
 //assign LEDR[9:6] = pc[3:0];
-//assign LEDR[6] = wmem;
+assign LEDR[6] = wmem;
+assign LEDR[8:7] = aluout[13:12];
+assign LEDR[9] = enable;
 //assign LEDR[9:7] = debugdata[2:0];
-assign LEDR[9:2] = debugdata[7:0];
+//assign LEDR[9:2] = debugdata[7:0];
 //assign LEDR[9:2] = ascii_kb;
 //assign LEDR[9:2] = memout[7:0];
 

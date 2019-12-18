@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSXFC6D6F31) Path("F:/Single-cycle CPU/") File("exp12.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSXFC6D6F31) Path("F:/github/Computer_system_Verilog/Single-cycle CPU/") File("exp12.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
