@@ -1,7 +1,7 @@
 module vga_top(
-	input 							CLOCK_50,
-	input 							clrn,
-	input				  [7:0]     ascii,
+	input 						CLOCK_50,
+	input 						clrn,
+	input			 [31:0]     data,
 	output		          		VGA_BLANK_N,
 	output		     [7:0]		VGA_B,
 	output		          		VGA_CLK,
@@ -10,16 +10,19 @@ module vga_top(
 	output		     [7:0]		VGA_R,
 	output		          		VGA_SYNC_N,
 	output		          		VGA_VS,
-	output			  [4:0]     row,
-	output			  [6:0]     col
+	output			 [9:0]      inquire_addr
 );
-
+	wire [4:0] row;
+	wire [6:0] col;
 	wire [23:0] vga_data;
 	wire [3:0] height;
 	wire [3:0] width;
-
+	wire [11:0] addr;
+	wire [11:0] temp;
+	reg [7:0] ascii; 
+	
 	clkgen #(25000000) my_vgaclk(CLOCK_50,~clrn,1'b1,VGA_CLK);	
-	assign VGA_SYNC_N=0;
+
 	
 vga_ctrl v1(
 			.pclk(VGA_CLK),
@@ -46,4 +49,17 @@ vga_display v2(
 			.ascii(ascii)
 );
 
+always @(*) begin
+	case(addr[1:0])
+		0: ascii = data[7:0];
+		1: ascii = data[15:8];
+		2: ascii = data[23:16];
+		3: ascii = data[31:24];
+	endcase
+end
+
+assign VGA_SYNC_N=0;
+assign temp = row; 
+assign addr = temp << 7 + col;
+assign inquire_addr = addr[11:2];
 endmodule 

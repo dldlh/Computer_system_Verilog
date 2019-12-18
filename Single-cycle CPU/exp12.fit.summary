@@ -1,16 +1,16 @@
-Fitter Status : Successful - Wed Dec 18 15:36:38 2019
+Fitter Status : Successful - Wed Dec 18 17:27:51 2019
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : exp12
 Top-level Entity Name : exp12
 Family : Cyclone V
 Device : 5CSXFC6D6F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 1 / 41,910 ( < 1 % )
-Total registers : 0
+Logic utilization (in ALMs) : 1,453 / 41,910 ( 3 % )
+Total registers : 1264
 Total pins : 168 / 499 ( 34 % )
 Total virtual pins : 0
-Total block memory bits : 0 / 5,662,720 ( 0 % )
-Total RAM Blocks : 0 / 553 ( 0 % )
+Total block memory bits : 85,456 / 5,662,720 ( 2 % )
+Total RAM Blocks : 18 / 553 ( 3 % )
 Total DSP Blocks : 0 / 112 ( 0 % )
 Total HSSI RX PCSs : 0 / 9 ( 0 % )
 Total HSSI PMA RX Deserializers : 0 / 9 ( 0 % )

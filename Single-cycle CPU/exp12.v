@@ -137,7 +137,11 @@ reg keyboard_enable;
 reg keyboard_addr;
 wire [31:0]keyboardmemout_cpu;
 wire [7:0]ascii_kb;
-kbd_top kb(CLOCK_50,resetn,PS2_CLK,PS2_DAT,ascii_kb);
+wire [7:0]tempout;
+wire enable;
+//kbd_top kb(CLOCK_50,resetn,PS2_CLK,PS2_DAT,ascii_kb);
+exp08 debug(CLOCK_50,KEY[3:0],SW[9:0],tempout,enable,PS2_CLK,PS2_CLK2,PS2_DAT,PS2_DAT2);
+assign ascii_kb = tempout & {{7{enable}},enable};
 //keyboard
 
 //vga
@@ -145,7 +149,9 @@ wire [31:0]ascii_vga;
 reg vga_enable;
 reg [9:0]vga_addr;
 wire [31:0]vgamemout_cpu;
-
+wire [9:0] vga_inaddr;
+wire [31:0] vgamemout_vga;
+vga_top v(CLOCK_50,resetn,vgamemout_vga,VGA_BLANK_N,VGA_B,VGA_CLK,VGA_G,VGA_HS,VGA_R,VGA_SYNC_N,VGA_VS,vga_inaddr);
 //vga
 
 //cpu sc(cpuclk,resetn,inst,memout,pc,wmem,aluout,data);
@@ -155,15 +161,17 @@ cpu sc(clk1,resetn,inst,memout,pc,wmem,aluout,data);
 
 instructionmem instmem(.inclock(memclk),.address(pc[11:2]),.q(inst),.outclock(memclk));
 
-kernelmem kemem(.address_a(kernelmem_addr),.clock_a(memclk),.q_a(kernelmemout_cpu),.data_a(data),.wren_a(kernelmem_enable),.address_b(in),.clock_b(memclk),.q_b(debugdata));//操作系统内核使用的内存
+kernelmem kemem(.address_a(kernelmem_addr),.clock_a(memclk),.q_a(kernelmemout_cpu),.data_a(data),.wren_a(kernelmem_enable));//操作系统内核使用的内存
 
-clockmem cmem(.address_a(clockmem_addr),.clock_a(memclk),.wren_a(clockmem_enable),.data_a(data),.q_a(clockmem_cpu),.address_b(0),.data_b(clock_data),.wren_b(1),.clock_b(clk1));
+clockmem cmem(.address_a(clockmem_addr),.clock_a(memclk),.wren_a(clockmem_enable),.data_a(data),.q_a(clockmem_cpu),.address_b(1'b0),.data_b(clock_data),.wren_b(1),.clock_b(clk1));
 
-ledrmem lmem(.address_a(ledrmem_addr),.clock_a(memclk),.wren_a(ledrmem_enable),.data_a(data),.address_b(0),.clock_b(CLOCK_50),.wren_b(0),.q_a(ledrmemout_cpu),.q_b(ledrmemout_ledr));
+ledrmem lmem(.address_a(ledrmem_addr),.clock_a(memclk),.wren_a(ledrmem_enable),.data_a(data),.address_b(1'b0),.clock_b(CLOCK_50),.wren_b(1'b0),.q_a(ledrmemout_cpu),.q_b(ledrmemout_ledr));
 
-keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(memclk),.q_a(keyboardmemout_cpu),.clock_b(CLOCK_50),.wren_b(1),.address_b(0),.data_b({{24{1'b0}},ascii_kb}));
+//keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(memclk),.q_a(keyboardmemout_cpu),.clock_b(CLOCK_50),.wren_b(1'b1),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
+keyboardmem kbmem(.address_a(0),.wren_a(0),.clock_a(memclk),.q_a(debugdata),.clock_b(CLOCK_50),.wren_b(1'b1),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
 
-vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data));
+
+vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b1),.q_b(vgamemout_vga));
 //MMIO
 always @ (*)begin
 	case(aluout[14:12])
@@ -177,7 +185,12 @@ always @ (*)begin
 			vga_enable = 0;
 		end
 		3'b001:begin//显存
-				;
+			clockmem_enable = 0;
+			kernelmem_enable = 0;
+			keyboard_enable = 0;
+			ledrmem_enable = 0;
+			vga_enable = wmem;
+			vga_addr = aluout[11:2];
 		end
 		3'b010:begin//键盘
 			keyboard_enable = wmem;
@@ -185,11 +198,13 @@ always @ (*)begin
 			clockmem_enable = 0;
 			ledrmem_enable = 0;
 			vga_enable = 0;
+			keyboard_addr = aluout[0];
 			memout = keyboardmemout_cpu;
 		end
 		3'b011:begin//时钟
 			clockmem_enable = wmem;
 			kernelmem_enable = 0;
+			clockmem_addr = aluout[0];
 			vga_enable = 0;
 			ledrmem_enable = 0;
 			keyboard_enable = 0;
@@ -197,6 +212,7 @@ always @ (*)begin
 		end
 		3'b100:begin//灯
 			ledrmem_enable = wmem;
+			ledrmem_addr = aluout[0];
 			kernelmem_enable = 0;
 			keyboard_enable = 0;
 			clockmem_enable = 0;
@@ -212,19 +228,25 @@ end
 //debug
 wire [3:0] in = SW[9:6];
 wire [31:0] debugdata;
-/*
+
 reg cpuclk_debug;
+/*
 turn7seg t1(1'b1,inst[31:28],HEX5);
 turn7seg t2(1'b1,inst[27:24],HEX4);
 turn7seg t3(1'b1,inst[23:20],HEX3);
 turn7seg t4(1'b1,inst[19:16],HEX2);
 turn7seg t5(1'b1,inst[15:12],HEX1);
 turn7seg t6(1'b1,inst[11:8],HEX0);
-
-assign LEDR[5:0] = aluout[5:0];
+*/
+turn7seg tpc1(1'b1,pc[9:6],HEX1);
+turn7seg tpc2(1'b1,pc[5:2],HEX0);
+//assign LEDR[5:0] = aluout[5:0];
 //assign LEDR[9:6] = pc[3:0];
-assign LEDR[6] = wmem;
-assign LEDR[9:7] = debugdata[2:0];
+//assign LEDR[6] = wmem;
+//assign LEDR[9:7] = debugdata[2:0];
+assign LEDR[9:2] = debugdata[7:0];
+//assign LEDR[9:2] = ascii_kb;
+//assign LEDR[9:2] = memout[7:0];
 
 always @ (cpuclk)begin
 	if(pc == 32'h4)
@@ -232,6 +254,6 @@ always @ (cpuclk)begin
 	else
 		cpuclk_debug = cpuclk;
 end
-*/
+
 //debug
 endmodule

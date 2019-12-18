@@ -426,10 +426,13 @@ set_global_assignment -name QIP_FILE ledrmem.qip
 set_global_assignment -name QIP_FILE keyboardmem.qip
 set_global_assignment -name VERILOG_FILE clock/e_clock.v
 set_global_assignment -name VERILOG_FILE clock/num2ascii.v
-set_global_assignment -name VERILOG_FILE kb/ps2_keyboard.v
-set_global_assignment -name VERILOG_FILE kb/kbd_top.v
-set_global_assignment -name VERILOG_FILE kb/kbd_processor.v
-set_global_assignment -name VERILOG_FILE kb/code2a.v
-set_global_assignment -name VERILOG_FILE kb/code2a_shift.v
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name QIP_FILE vgamem.qip
+set_global_assignment -name VERILOG_FILE vga/vga_top.v
+set_global_assignment -name QIP_FILE vga/vga_font.qip
+set_global_assignment -name VERILOG_FILE vga/vga_ctrl.v
+set_global_assignment -name VERILOG_FILE vga/vga_display.v
+set_global_assignment -name VERILOG_FILE vga/vga_font.v
+set_global_assignment -name VERILOG_FILE "temp-debug/exp08.v"
+set_global_assignment -name VERILOG_FILE "temp-debug/ps2_keyboard.v"
+set_global_assignment -name VERILOG_FILE "temp-debug/ram.v"
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
