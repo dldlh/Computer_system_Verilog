@@ -173,7 +173,9 @@ keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(me
 //keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(CLOCK_50),.q_a(keyboardmemout_cpu),.clock_b(CLOCK_50),.wren_b(1'b1),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
 
 
-vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b1),.q_b(vgamemout_vga));
+vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(vgamemout_vga));
+//vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(0),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(debugdata));
+
 //MMIO
 always @ (*)begin
 	case(aluout[14:12])
@@ -250,8 +252,11 @@ turn7seg d2(1'b1,data[3:0],HEX4);
 turn7seg a2(1'b1,aluout[3:0],HEX1);
 turn7seg a1(1'b1,pc[5:2],HEX0);
 turn7seg a3(1'b1,aluout[7:4],HEX2);
-turn7seg a4(1'b1,aluout[11:8],HEX3);
-turn7seg a5(1'b1,aluout[15:12],HEX4);
+turn7seg d4(1'b1,debugdata[3:0],HEX3);
+turn7seg d5(1'b1,debugdata[7:4],HEX4);
+//turn7seg a4(1'b1,aluout[11:8],HEX3);
+//turn7seg a5(1'b1,aluout[15:12],HEX4);
+
 //assign LEDR[5:0] = aluout[5:0];
 //assign LEDR[9:6] = pc[3:0];
 //assign LEDR[6] = wmem;

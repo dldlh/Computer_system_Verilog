@@ -48,20 +48,20 @@ HEX2[3] <= turn7seg:a3.port2
 HEX2[4] <= turn7seg:a3.port2
 HEX2[5] <= turn7seg:a3.port2
 HEX2[6] <= turn7seg:a3.port2
-HEX3[0] <= turn7seg:a4.port2
-HEX3[1] <= turn7seg:a4.port2
-HEX3[2] <= turn7seg:a4.port2
-HEX3[3] <= turn7seg:a4.port2
-HEX3[4] <= turn7seg:a4.port2
-HEX3[5] <= turn7seg:a4.port2
-HEX3[6] <= turn7seg:a4.port2
-HEX4[0] <= turn7seg:a5.port2
-HEX4[1] <= turn7seg:a5.port2
-HEX4[2] <= turn7seg:a5.port2
-HEX4[3] <= turn7seg:a5.port2
-HEX4[4] <= turn7seg:a5.port2
-HEX4[5] <= turn7seg:a5.port2
-HEX4[6] <= turn7seg:a5.port2
+HEX3[0] <= turn7seg:d4.port2
+HEX3[1] <= turn7seg:d4.port2
+HEX3[2] <= turn7seg:d4.port2
+HEX3[3] <= turn7seg:d4.port2
+HEX3[4] <= turn7seg:d4.port2
+HEX3[5] <= turn7seg:d4.port2
+HEX3[6] <= turn7seg:d4.port2
+HEX4[0] <= turn7seg:d5.port2
+HEX4[1] <= turn7seg:d5.port2
+HEX4[2] <= turn7seg:d5.port2
+HEX4[3] <= turn7seg:d5.port2
+HEX4[4] <= turn7seg:d5.port2
+HEX4[5] <= turn7seg:d5.port2
+HEX4[6] <= turn7seg:d5.port2
 HEX5[0] <= <GND>
 HEX5[1] <= <GND>
 HEX5[2] <= <GND>
@@ -11165,7 +11165,7 @@ seg[5] <= seg.DB_MAX_OUTPUT_PORT_TYPE
 seg[6] <= seg.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|exp12|turn7seg:a4
+|exp12|turn7seg:d4
 en => seg.OUTPUTSELECT
 en => seg.OUTPUTSELECT
 en => seg.OUTPUTSELECT
@@ -11186,7 +11186,7 @@ seg[5] <= seg.DB_MAX_OUTPUT_PORT_TYPE
 seg[6] <= seg.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|exp12|turn7seg:a5
+|exp12|turn7seg:d5
 en => seg.OUTPUTSELECT
 en => seg.OUTPUTSELECT
 en => seg.OUTPUTSELECT
