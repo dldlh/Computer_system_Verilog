@@ -42,7 +42,7 @@ wire j_c = ~op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & ~op[0];
 
 assign jal_c = ~op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & op[0];
 assign wreg = add_c | sub_c | and_c | or_c | xor_c | sll_c | srl_c | sra_c | addi | andi | ori | xori | lw_c | lui_c | jal_c;
-assign regrt = addi | andi | ori | xori | lw_c | lui_c | jal_c; 
+assign regrt = addi | andi | ori | xori | lw_c | lui_c; 
 assign m2reg = lw_c;
 assign shift = sll_c | srl_c | sra_c;
 assign aluimm = addi | andi | ori | xori |lw_c | lui_c | sw_c;
