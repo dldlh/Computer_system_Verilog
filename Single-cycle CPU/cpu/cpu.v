@@ -1,4 +1,5 @@
 module cpu(clock,reset_n,inst,mem,pc,wmem,alu,data);
+//module cpu(clock,reset_n,inst,mem,pc,wmem,alu,data,pcsource,zero);
 input clock;
 input reset_n;
 input [31:0] inst;
@@ -10,7 +11,9 @@ wire [31:0] sa = {27'b0,inst[10:6]};
 wire [3:0] aluc;
 wire [4:0]reg_dest,wn;
 wire [1:0]pcsource;
+//output [1:0]pcsource;
 wire zero,wmem,wreg,regrt,m2reg,shift,aluimm,jal,sext;
+//output zero;
 wire [31:0] offset = {imm[13:0],inst[15:0],2'b00};
 
 cpu_control_single control(inst[31:26],inst[5:0],zero, wmem,wreg , regrt , m2reg , aluc , shift , aluimm, pcsource,jal,sext);

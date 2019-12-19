@@ -157,6 +157,7 @@ vga_top v(CLOCK_50,resetn,vgamemout_vga,VGA_BLANK_N,VGA_B,VGA_CLK,VGA_G,VGA_HS,V
 //cpu sc(cpuclk,resetn,inst,memout,pc,wmem,aluout,data);
 //cpu sc(cpuclk_debug,resetn,inst,memout,pc,wmem,aluout,data);
 cpu sc(clk1,resetn,inst,memout,pc,wmem,aluout,data);
+//cpu sc(clk1,resetn,inst,memout,pc,wmem,aluout,data,LEDR[9:8],LEDR[0]);
 //cpu sc(clk_hand,resetn,inst,memout,pc,wmem,aluout,data);
 
 instructionmem instmem(.inclock(memclk),.address(pc[11:2]),.q(inst),.outclock(memclk));

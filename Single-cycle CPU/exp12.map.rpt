@@ -1,5 +1,5 @@
 Analysis & Synthesis report for exp12
-Wed Dec 18 23:58:57 2019
+Thu Dec 19 13:29:59 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -90,7 +90,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Dec 18 23:58:57 2019       ;
+; Analysis & Synthesis Status     ; Successful - Thu Dec 19 13:29:58 2019       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; exp12                                       ;
 ; Top-level Entity Name           ; exp12                                       ;
@@ -273,14 +273,14 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 1519         ;
+; Estimate of Logic utilization (ALMs needed) ; 1524         ;
 ;                                             ;              ;
-; Combinational ALUT usage for logic          ; 1898         ;
+; Combinational ALUT usage for logic          ; 1900         ;
 ;     -- 7 input functions                    ; 23           ;
-;     -- 6 input functions                    ; 1005         ;
-;     -- 5 input functions                    ; 233          ;
-;     -- 4 input functions                    ; 198          ;
-;     -- <=3 input functions                  ; 439          ;
+;     -- 6 input functions                    ; 1013         ;
+;     -- 5 input functions                    ; 253          ;
+;     -- 4 input functions                    ; 185          ;
+;     -- <=3 input functions                  ; 426          ;
 ;                                             ;              ;
 ; Dedicated logic registers                   ; 1263         ;
 ;                                             ;              ;
@@ -292,8 +292,8 @@ refer to the applicable agreement for further details.
 ;                                             ;              ;
 ; Maximum fan-out node                        ; KEY[0]~input ;
 ; Maximum fan-out                             ; 1063         ;
-; Total fan-out                               ; 16467        ;
-; Average fan-out                             ; 4.42         ;
+; Total fan-out                               ; 16524        ;
+; Average fan-out                             ; 4.43         ;
 +---------------------------------------------+--------------+
 
 
@@ -302,22 +302,22 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------+--------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                          ; Entity Name        ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------+--------------------+--------------+
-; |exp12                                          ; 1898 (112)          ; 1263 (1)                  ; 85504             ; 0          ; 168  ; 0            ; |exp12                                                                                                       ; exp12              ; work         ;
+; |exp12                                          ; 1900 (112)          ; 1263 (1)                  ; 85504             ; 0          ; 168  ; 0            ; |exp12                                                                                                       ; exp12              ; work         ;
 ;    |clkgen:c1|                                  ; 39 (39)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |exp12|clkgen:c1                                                                                             ; clkgen             ; work         ;
 ;    |clockmem:cmem|                              ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |exp12|clockmem:cmem                                                                                         ; clockmem           ; work         ;
 ;       |altsyncram:altsyncram_component|         ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |exp12|clockmem:cmem|altsyncram:altsyncram_component                                                         ; altsyncram         ; work         ;
 ;          |altsyncram_k0i2:auto_generated|       ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |exp12|clockmem:cmem|altsyncram:altsyncram_component|altsyncram_k0i2:auto_generated                          ; altsyncram_k0i2    ; work         ;
-;    |cpu:sc|                                     ; 1332 (65)           ; 1024 (0)                  ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc                                                                                                ; cpu                ; work         ;
-;       |alu:al_unit|                             ; 338 (66)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|alu:al_unit                                                                                    ; alu                ; work         ;
-;          |mux4x32:select|                       ; 153 (153)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|alu:al_unit|mux4x32:select                                                                     ; mux4x32            ; work         ;
+;    |cpu:sc|                                     ; 1334 (65)           ; 1024 (0)                  ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc                                                                                                ; cpu                ; work         ;
+;       |alu:al_unit|                             ; 339 (66)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|alu:al_unit                                                                                    ; alu                ; work         ;
+;          |mux4x32:select|                       ; 154 (154)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|alu:al_unit|mux4x32:select                                                                     ; mux4x32            ; work         ;
 ;          |shift:shifter|                        ; 119 (119)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|alu:al_unit|shift:shifter                                                                      ; shift              ; work         ;
-;       |cpu_control_single:control|              ; 28 (28)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|cpu_control_single:control                                                                     ; cpu_control_single ; work         ;
+;       |cpu_control_single:control|              ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|cpu_control_single:control                                                                     ; cpu_control_single ; work         ;
 ;       |dffe32:ip|                               ; 0 (0)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|dffe32:ip                                                                                      ; dffe32             ; work         ;
 ;       |mux2x32:alu_a|                           ; 42 (42)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|mux2x32:alu_a                                                                                  ; mux2x32            ; work         ;
 ;       |mux2x32:alu_b|                           ; 47 (47)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|mux2x32:alu_b                                                                                  ; mux2x32            ; work         ;
 ;       |mux2x32:link|                            ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|mux2x32:link                                                                                   ; mux2x32            ; work         ;
 ;       |mux4x32:nextpc|                          ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|mux4x32:nextpc                                                                                 ; mux4x32            ; work         ;
-;       |regfile:rf|                              ; 748 (748)           ; 992 (992)                 ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|regfile:rf                                                                                     ; regfile            ; work         ;
+;       |regfile:rf|                              ; 747 (747)           ; 992 (992)                 ; 0                 ; 0          ; 0    ; 0            ; |exp12|cpu:sc|regfile:rf                                                                                     ; regfile            ; work         ;
 ;    |e_clock:ec|                                 ; 130 (71)            ; 81 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |exp12|e_clock:ec                                                                                            ; e_clock            ; work         ;
 ;       |clkgen:myclk_1s|                         ; 39 (39)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |exp12|e_clock:ec|clkgen:myclk_1s                                                                            ; clkgen             ; work         ;
 ;       |num2ascii:i0|                            ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|e_clock:ec|num2ascii:i0                                                                               ; num2ascii          ; work         ;
@@ -519,51 +519,51 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |exp12|cpu:sc|dffe32:ip|q[0]                        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |exp12|cpu:sc|dffe32:ip|q[30]                       ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |exp12|cpu:sc|dffe32:ip|q[16]                       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |exp12|vga_top:v|clkgen:my_vgaclk|clkcount[7]       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |exp12|cpu:sc|dffe32:ip|q[1]                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |exp12|cpu:sc|dffe32:ip|q[29]                       ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |exp12|cpu:sc|dffe32:ip|q[8]                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |exp12|vga_top:v|clkgen:my_vgaclk|clkcount[6]       ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |exp12|exp08:debug|ps2_keyboard:p|w_ptr[1]          ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |exp12|vga_top:v|vga_ctrl:v1|col[5]                 ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |exp12|e_clock:ec|clkgen:myclk_1s|clkcount[3]       ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |exp12|exp08:debug|ps2_keyboard:p|count[0]          ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_top:v|vga_ctrl:v1|y_cnt[1]               ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |exp12|vga_top:v|vga_ctrl:v1|width[3]               ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |exp12|vga_top:v|vga_ctrl:v1|row[3]                 ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |exp12|e_clock:ec|min_l[1]                          ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |exp12|e_clock:ec|min_h[1]                          ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |exp12|vga_top:v|vga_ctrl:v1|height[1]              ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |exp12|vga_top:v|vga_ctrl:v1|col[1]                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |exp12|e_clock:ec|clkgen:myclk_1s|clkcount[29]      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |exp12|exp08:debug|ps2_keyboard:p|count[1]          ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_top:v|vga_ctrl:v1|y_cnt[6]               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |exp12|vga_top:v|vga_ctrl:v1|width[0]               ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |exp12|vga_top:v|vga_ctrl:v1|row[1]                 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |exp12|e_clock:ec|min_l[0]                          ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |exp12|e_clock:ec|min_h[2]                          ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |exp12|vga_top:v|vga_ctrl:v1|height[2]              ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |exp12|e_clock:ec|hour_l[2]                         ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |exp12|e_clock:ec|hour_h[3]                         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|shift:shifter|ShiftLeft0  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |exp12|e_clock:ec|hour_h[2]                         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|shift:shifter|ShiftRight0 ;
 ; 4:1                ; 49 bits   ; 98 LEs        ; 98 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|shift:shifter|ShiftLeft0  ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|shift:shifter|ShiftRight0 ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|shift:shifter|ShiftRight1 ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|shift:shifter|ShiftLeft0  ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|shift:shifter|ShiftLeft0  ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|shift:shifter|ShiftLeft0  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|mux2x32:link|y[28]                    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|mux2x32:link|y[19]                    ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |exp12|vga_top:v|ShiftLeft0                         ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |exp12|vga_top:v|Mux7                               ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |exp12|vga_top:v|Mux1                               ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |exp12|vga_top:v|vga_display:v2|ShiftLeft0          ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |exp12|vga_top:v|vga_display:v2|ShiftLeft0          ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |exp12|exp08:debug|ps2_keyboard:p|r_ptr             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |exp12|vga_top:v|ShiftLeft0                         ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |exp12|Mux18                                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |exp12|Mux2                                         ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |exp12|vga_top:v|ShiftLeft0                         ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |exp12|vga_top:v|ShiftLeft0                         ;
 ; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |exp12|vga_top:v|vga_display:v2|ShiftLeft0          ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |exp12|Mux35                                        ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |exp12|Mux37                                        ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |exp12|cpu:sc|regfile:rf|qa[13]                     ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |exp12|cpu:sc|regfile:rf|qb[31]                     ;
-; 13:1               ; 5 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|mux4x32:select|Mux25      ;
-; 14:1               ; 8 bits    ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|mux4x32:select|Mux8       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |exp12|Mux33                                        ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |exp12|cpu:sc|regfile:rf|qa[25]                     ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |exp12|cpu:sc|regfile:rf|qb[5]                      ;
+; 13:1               ; 5 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|mux4x32:select|Mux26      ;
+; 14:1               ; 8 bits    ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|mux4x32:select|Mux14      ;
 ; 13:1               ; 3 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|mux4x32:select|Mux19      ;
-; 16:1               ; 3 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|mux4x32:select|Mux29      ;
+; 16:1               ; 3 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|mux4x32:select|Mux30      ;
 ; 15:1               ; 2 bits    ; 20 LEs        ; 18 LEs               ; 2 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|mux4x32:select|Mux22      ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|mux4x32:select|Mux6       ;
-; 17:1               ; 3 bits    ; 33 LEs        ; 33 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|mux4x32:select|Mux3       ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|mux4x32:select|Mux5       ;
+; 17:1               ; 3 bits    ; 33 LEs        ; 33 LEs               ; 0 LEs                  ; No         ; |exp12|cpu:sc|alu:al_unit|mux4x32:select|Mux1       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
 
 
@@ -1480,29 +1480,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SLD               ; 1                           ;
 ;     plain             ; 41                          ;
 ; arriav_io_obuf        ; 24                          ;
-; arriav_lcell_comb     ; 1905                        ;
+; arriav_lcell_comb     ; 1907                        ;
 ;     arith             ; 256                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 192                         ;
 ;         2 data inputs ; 16                          ;
-;         3 data inputs ; 14                          ;
 ;         4 data inputs ; 1                           ;
-;         5 data inputs ; 32                          ;
+;         5 data inputs ; 46                          ;
 ;     extend            ; 23                          ;
 ;         7 data inputs ; 23                          ;
-;     normal            ; 1626                        ;
+;     normal            ; 1628                        ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 12                          ;
 ;         2 data inputs ; 59                          ;
-;         3 data inputs ; 151                         ;
-;         4 data inputs ; 197                         ;
-;         5 data inputs ; 201                         ;
-;         6 data inputs ; 1005                        ;
+;         3 data inputs ; 152                         ;
+;         4 data inputs ; 184                         ;
+;         5 data inputs ; 207                         ;
+;         6 data inputs ; 1013                        ;
 ; boundary_port         ; 168                         ;
 ; stratixv_ram_block    ; 208                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 13.00                       ;
-; Average LUT depth     ; 9.22                        ;
+; Average LUT depth     ; 9.24                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1511,7 +1510,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:06     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -1521,7 +1520,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Dec 18 23:58:40 2019
+    Info: Processing started: Thu Dec 19 13:29:41 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off exp12 -c exp12
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1581,21 +1580,21 @@ Warning (12125): Using design file exp12.v, which is not specified as a design f
     Info (12023): Found entity 1: exp12 File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 6
 Info (12127): Elaborating entity "exp12" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at exp12.v(108): object "cpuclk_hand" assigned a value but never read File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 108
-Warning (10036): Verilog HDL or VHDL warning at exp12.v(230): object "in" assigned a value but never read File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 230
-Warning (10036): Verilog HDL or VHDL warning at exp12.v(233): object "cpuclk_debug" assigned a value but never read File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 233
+Warning (10036): Verilog HDL or VHDL warning at exp12.v(231): object "in" assigned a value but never read File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 231
+Warning (10036): Verilog HDL or VHDL warning at exp12.v(234): object "cpuclk_debug" assigned a value but never read File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 234
 Warning (10230): Verilog HDL assignment warning at exp12.v(101): truncated value with size 32 to match size of target (4) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 101
-Warning (10240): Verilog HDL Always Construct warning at exp12.v(178): inferring latch(es) for variable "ledrmem_enable", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Warning (10240): Verilog HDL Always Construct warning at exp12.v(178): inferring latch(es) for variable "ledrmem_addr", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Warning (10240): Verilog HDL Always Construct warning at exp12.v(178): inferring latch(es) for variable "kernelmem_enable", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Warning (10240): Verilog HDL Always Construct warning at exp12.v(178): inferring latch(es) for variable "keyboard_enable", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Warning (10240): Verilog HDL Always Construct warning at exp12.v(178): inferring latch(es) for variable "clockmem_enable", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Warning (10240): Verilog HDL Always Construct warning at exp12.v(178): inferring latch(es) for variable "vga_enable", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Warning (10240): Verilog HDL Always Construct warning at exp12.v(178): inferring latch(es) for variable "memout", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Warning (10240): Verilog HDL Always Construct warning at exp12.v(178): inferring latch(es) for variable "clockmem_addr", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Warning (10240): Verilog HDL Always Construct warning at exp12.v(178): inferring latch(es) for variable "keyboard_addr", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Warning (10240): Verilog HDL Always Construct warning at exp12.v(178): inferring latch(es) for variable "vga_addr", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Warning (10240): Verilog HDL Always Construct warning at exp12.v(178): inferring latch(es) for variable "kernelmem_addr", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Warning (10235): Verilog HDL Always Construct warning at exp12.v(265): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 265
+Warning (10240): Verilog HDL Always Construct warning at exp12.v(179): inferring latch(es) for variable "ledrmem_enable", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Warning (10240): Verilog HDL Always Construct warning at exp12.v(179): inferring latch(es) for variable "ledrmem_addr", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Warning (10240): Verilog HDL Always Construct warning at exp12.v(179): inferring latch(es) for variable "kernelmem_enable", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Warning (10240): Verilog HDL Always Construct warning at exp12.v(179): inferring latch(es) for variable "keyboard_enable", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Warning (10240): Verilog HDL Always Construct warning at exp12.v(179): inferring latch(es) for variable "clockmem_enable", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Warning (10240): Verilog HDL Always Construct warning at exp12.v(179): inferring latch(es) for variable "vga_enable", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Warning (10240): Verilog HDL Always Construct warning at exp12.v(179): inferring latch(es) for variable "memout", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Warning (10240): Verilog HDL Always Construct warning at exp12.v(179): inferring latch(es) for variable "clockmem_addr", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Warning (10240): Verilog HDL Always Construct warning at exp12.v(179): inferring latch(es) for variable "keyboard_addr", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Warning (10240): Verilog HDL Always Construct warning at exp12.v(179): inferring latch(es) for variable "vga_addr", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Warning (10240): Verilog HDL Always Construct warning at exp12.v(179): inferring latch(es) for variable "kernelmem_addr", which holds its previous value in one or more paths through the always construct File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Warning (10235): Verilog HDL Always Construct warning at exp12.v(266): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 266
 Warning (10034): Output port "LEDR" at exp12.v(21) has no driver File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 21
 Warning (10034): Output port "HEX5" at exp12.v(29) has no driver File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 29
 Warning (10034): Output port "DRAM_ADDR" at exp12.v(32) has no driver File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 32
@@ -1616,68 +1615,68 @@ Warning (10034): Output port "ADC_DIN" at exp12.v(77) has no driver File: F:/git
 Warning (10034): Output port "ADC_SCLK" at exp12.v(79) has no driver File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 79
 Warning (10034): Output port "FPGA_I2C_SCLK" at exp12.v(82) has no driver File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 82
 Warning (10034): Output port "IRDA_TXD" at exp12.v(88) has no driver File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 88
-Info (10041): Inferred latch for "kernelmem_addr[0]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "kernelmem_addr[1]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "kernelmem_addr[2]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "kernelmem_addr[3]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "kernelmem_addr[4]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "kernelmem_addr[5]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "kernelmem_addr[6]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "kernelmem_addr[7]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "kernelmem_addr[8]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "kernelmem_addr[9]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "kernelmem_addr[10]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "kernelmem_addr[11]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "vga_addr[0]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "vga_addr[1]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "vga_addr[2]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "vga_addr[3]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "vga_addr[4]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "vga_addr[5]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "vga_addr[6]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "vga_addr[7]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "vga_addr[8]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "vga_addr[9]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "keyboard_addr" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "clockmem_addr" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[0]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[1]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[2]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[3]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[4]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[5]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[6]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[7]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[8]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[9]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[10]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[11]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[12]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[13]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[14]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[15]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[16]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[17]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[18]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[19]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[20]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[21]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[22]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[23]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[24]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[25]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[26]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[27]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[28]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[29]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[30]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "memout[31]" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "vga_enable" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "clockmem_enable" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "keyboard_enable" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "kernelmem_enable" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "ledrmem_addr" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-Info (10041): Inferred latch for "ledrmem_enable" at exp12.v(178) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Info (10041): Inferred latch for "kernelmem_addr[0]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "kernelmem_addr[1]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "kernelmem_addr[2]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "kernelmem_addr[3]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "kernelmem_addr[4]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "kernelmem_addr[5]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "kernelmem_addr[6]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "kernelmem_addr[7]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "kernelmem_addr[8]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "kernelmem_addr[9]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "kernelmem_addr[10]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "kernelmem_addr[11]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "vga_addr[0]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "vga_addr[1]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "vga_addr[2]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "vga_addr[3]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "vga_addr[4]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "vga_addr[5]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "vga_addr[6]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "vga_addr[7]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "vga_addr[8]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "vga_addr[9]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "keyboard_addr" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "clockmem_addr" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[0]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[1]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[2]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[3]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[4]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[5]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[6]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[7]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[8]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[9]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[10]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[11]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[12]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[13]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[14]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[15]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[16]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[17]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[18]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[19]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[20]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[21]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[22]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[23]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[24]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[25]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[26]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[27]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[28]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[29]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[30]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "memout[31]" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "vga_enable" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "clockmem_enable" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "keyboard_enable" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "kernelmem_enable" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "ledrmem_addr" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+Info (10041): Inferred latch for "ledrmem_enable" at exp12.v(179) File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
 Info (12128): Elaborating entity "clkgen" for hierarchy "clkgen:c1" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 106
 Info (12128): Elaborating entity "e_clock" for hierarchy "e_clock:ec" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 118
 Warning (10230): Verilog HDL assignment warning at e_clock.v(30): truncated value with size 32 to match size of target (4) File: F:/github/Computer_system_Verilog/Single-cycle CPU/clock/e_clock.v Line: 30
@@ -1729,17 +1728,17 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
     Info (12023): Found entity 1: altsyncram_apf1 File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_apf1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_apf1" for hierarchy "vga_top:v|vga_display:v2|vga_font:read|altsyncram:altsyncram_component|altsyncram_apf1:auto_generated" File: f:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "cpu" for hierarchy "cpu:sc" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 159
-Info (12128): Elaborating entity "cpu_control_single" for hierarchy "cpu:sc|cpu_control_single:control" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 16
-Info (12128): Elaborating entity "dffe32" for hierarchy "cpu:sc|dffe32:ip" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 22
+Info (12128): Elaborating entity "cpu_control_single" for hierarchy "cpu:sc|cpu_control_single:control" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 19
+Info (12128): Elaborating entity "dffe32" for hierarchy "cpu:sc|dffe32:ip" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 25
 Warning (12125): Using design file mux2x32.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: mux2x32 File: F:/github/Computer_system_Verilog/Single-cycle CPU/mux2x32.v Line: 1
-Info (12128): Elaborating entity "mux2x32" for hierarchy "cpu:sc|mux2x32:alu_b" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 31
-Info (12128): Elaborating entity "mux2x5" for hierarchy "cpu:sc|mux2x5:reg_wn" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 35
-Info (12128): Elaborating entity "mux4x32" for hierarchy "cpu:sc|mux4x32:nextpc" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 40
-Info (12128): Elaborating entity "regfile" for hierarchy "cpu:sc|regfile:rf" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 42
-Info (12128): Elaborating entity "alu" for hierarchy "cpu:sc|alu:al_unit" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 43
+Info (12128): Elaborating entity "mux2x32" for hierarchy "cpu:sc|mux2x32:alu_b" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 34
+Info (12128): Elaborating entity "mux2x5" for hierarchy "cpu:sc|mux2x5:reg_wn" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 38
+Info (12128): Elaborating entity "mux4x32" for hierarchy "cpu:sc|mux4x32:nextpc" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 43
+Info (12128): Elaborating entity "regfile" for hierarchy "cpu:sc|regfile:rf" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 45
+Info (12128): Elaborating entity "alu" for hierarchy "cpu:sc|alu:al_unit" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu.v Line: 46
 Info (12128): Elaborating entity "shift" for hierarchy "cpu:sc|alu:al_unit|shift:shifter" File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/alu.v Line: 16
-Info (12128): Elaborating entity "instructionmem" for hierarchy "instructionmem:instmem" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 162
+Info (12128): Elaborating entity "instructionmem" for hierarchy "instructionmem:instmem" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 163
 Info (12128): Elaborating entity "altsyncram" for hierarchy "instructionmem:instmem|altsyncram:altsyncram_component" File: F:/github/Computer_system_Verilog/Single-cycle CPU/instructionmem.v Line: 83
 Info (12130): Elaborated megafunction instantiation "instructionmem:instmem|altsyncram:altsyncram_component" File: F:/github/Computer_system_Verilog/Single-cycle CPU/instructionmem.v Line: 83
 Info (12133): Instantiated megafunction "instructionmem:instmem|altsyncram:altsyncram_component" with the following parameter: File: F:/github/Computer_system_Verilog/Single-cycle CPU/instructionmem.v Line: 83
@@ -1759,8 +1758,7 @@ Info (12133): Instantiated megafunction "instructionmem:instmem|altsyncram:altsy
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_5od1.tdf
     Info (12023): Found entity 1: altsyncram_5od1 File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_5od1" for hierarchy "instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated" File: f:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Critical Warning (127005): Memory depth (1024) in the design file differs from memory depth (529) in the Memory Initialization File "F:/github/Computer_system_Verilog/Single-cycle CPU/inst.mif" -- setting initial value for remaining addresses to 0 File: F:/github/Computer_system_Verilog/Single-cycle CPU/instructionmem.v Line: 83
-Info (12128): Elaborating entity "kernelmem" for hierarchy "kernelmem:kemem" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 164
+Info (12128): Elaborating entity "kernelmem" for hierarchy "kernelmem:kemem" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 165
 Info (12128): Elaborating entity "altsyncram" for hierarchy "kernelmem:kemem|altsyncram:altsyncram_component" File: F:/github/Computer_system_Verilog/Single-cycle CPU/kernelmem.v Line: 99
 Info (12130): Elaborated megafunction instantiation "kernelmem:kemem|altsyncram:altsyncram_component" File: F:/github/Computer_system_Verilog/Single-cycle CPU/kernelmem.v Line: 99
 Info (12133): Instantiated megafunction "kernelmem:kemem|altsyncram:altsyncram_component" with the following parameter: File: F:/github/Computer_system_Verilog/Single-cycle CPU/kernelmem.v Line: 99
@@ -1792,7 +1790,7 @@ Info (12133): Instantiated megafunction "kernelmem:kemem|altsyncram:altsyncram_c
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_24i2.tdf
     Info (12023): Found entity 1: altsyncram_24i2 File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_24i2.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_24i2" for hierarchy "kernelmem:kemem|altsyncram:altsyncram_component|altsyncram_24i2:auto_generated" File: f:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "clockmem" for hierarchy "clockmem:cmem" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 166
+Info (12128): Elaborating entity "clockmem" for hierarchy "clockmem:cmem" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 167
 Info (12128): Elaborating entity "altsyncram" for hierarchy "clockmem:cmem|altsyncram:altsyncram_component" File: F:/github/Computer_system_Verilog/Single-cycle CPU/clockmem.v Line: 99
 Info (12130): Elaborated megafunction instantiation "clockmem:cmem|altsyncram:altsyncram_component" File: F:/github/Computer_system_Verilog/Single-cycle CPU/clockmem.v Line: 99
 Info (12133): Instantiated megafunction "clockmem:cmem|altsyncram:altsyncram_component" with the following parameter: File: F:/github/Computer_system_Verilog/Single-cycle CPU/clockmem.v Line: 99
@@ -1824,9 +1822,9 @@ Info (12133): Instantiated megafunction "clockmem:cmem|altsyncram:altsyncram_com
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_k0i2.tdf
     Info (12023): Found entity 1: altsyncram_k0i2 File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_k0i2.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_k0i2" for hierarchy "clockmem:cmem|altsyncram:altsyncram_component|altsyncram_k0i2:auto_generated" File: f:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "ledrmem" for hierarchy "ledrmem:lmem" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 168
-Info (12128): Elaborating entity "keyboardmem" for hierarchy "keyboardmem:kbmem" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 170
-Info (12128): Elaborating entity "vgamem" for hierarchy "vgamem:vmem" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 175
+Info (12128): Elaborating entity "ledrmem" for hierarchy "ledrmem:lmem" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 169
+Info (12128): Elaborating entity "keyboardmem" for hierarchy "keyboardmem:kbmem" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 171
+Info (12128): Elaborating entity "vgamem" for hierarchy "vgamem:vmem" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 176
 Info (12128): Elaborating entity "altsyncram" for hierarchy "vgamem:vmem|altsyncram:altsyncram_component" File: F:/github/Computer_system_Verilog/Single-cycle CPU/vgamem.v Line: 99
 Info (12130): Elaborated megafunction instantiation "vgamem:vmem|altsyncram:altsyncram_component" File: F:/github/Computer_system_Verilog/Single-cycle CPU/vgamem.v Line: 99
 Info (12133): Instantiated megafunction "vgamem:vmem|altsyncram:altsyncram_component" with the following parameter: File: F:/github/Computer_system_Verilog/Single-cycle CPU/vgamem.v Line: 99
@@ -1858,7 +1856,7 @@ Info (12133): Instantiated megafunction "vgamem:vmem|altsyncram:altsyncram_compo
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_eai2.tdf
     Info (12023): Found entity 1: altsyncram_eai2 File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_eai2.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_eai2" for hierarchy "vgamem:vmem|altsyncram:altsyncram_component|altsyncram_eai2:auto_generated" File: f:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "turn7seg" for hierarchy "turn7seg:a2" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 249
+Info (12128): Elaborating entity "turn7seg" for hierarchy "turn7seg:a2" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 250
 Warning (276020): Inferred RAM node "exp08:debug|ps2_keyboard:p|fifo_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "exp08:debug|ps2_keyboard:p|fifo_rtl_0" 
@@ -1920,115 +1918,115 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "AUD_BCLK" has no driver File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 64
     Warning (13040): bidirectional pin "AUD_DACLRCK" has no driver File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 66
     Warning (13040): bidirectional pin "FPGA_I2C_SDAT" has no driver File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 83
-Warning (13012): Latch memout[0] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[0] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[4] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[4] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[2] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[2] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[3] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[3] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[1] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[1] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[5] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[5] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[6] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[6] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[7] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[7] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[8] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[8] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[9] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[9] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[10] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[10] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[11] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[11] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[12] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[12] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[13] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[13] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[14] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[14] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[15] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[15] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[16] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[16] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[17] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[17] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[18] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[18] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[19] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[19] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[20] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[20] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[21] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[21] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[22] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[22] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[23] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[23] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[24] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[24] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[25] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[25] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[26] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[26] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[27] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[27] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[28] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[28] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[30] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[30] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[29] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[29] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch memout[31] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch memout[31] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[14] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
 Warning (13012): Latch vga_enable has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 149
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|wmem File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 6
-Warning (13012): Latch vga_addr[0] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch vga_addr[0] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[2] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch vga_addr[1] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch vga_addr[1] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[3] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch vga_addr[2] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch vga_addr[2] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[4] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch vga_addr[3] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch vga_addr[3] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[5] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch vga_addr[4] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch vga_addr[4] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|aluimm File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 12
-Warning (13012): Latch vga_addr[5] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch vga_addr[5] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|aluimm File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 12
-Warning (13012): Latch vga_addr[6] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch vga_addr[6] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[8] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch vga_addr[7] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch vga_addr[7] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[9] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch vga_addr[8] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch vga_addr[8] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|aluimm File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 12
-Warning (13012): Latch vga_addr[9] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|aluc[1] File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 10
+Warning (13012): Latch vga_addr[9] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|aluc[0] File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 10
 Warning (13012): Latch keyboard_enable has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 136
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|wmem File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 6
 Warning (13012): Latch keyboard_addr has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 137
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|aluc[1] File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|aluc[0] File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 10
 Warning (13012): Latch clockmem_enable has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 113
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|wmem File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 6
 Warning (13012): Latch clockmem_addr has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 112
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|aluc[1] File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|aluc[0] File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 10
 Warning (13012): Latch ledrmem_enable has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 128
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|wmem File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 6
 Warning (13012): Latch ledrmem_addr has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 129
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|aluc[1] File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 10
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|aluc[0] File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 10
 Warning (13012): Latch kernelmem_enable has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 122
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|wmem File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 6
-Warning (13012): Latch kernelmem_addr[0] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch kernelmem_addr[0] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[2] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch kernelmem_addr[1] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch kernelmem_addr[1] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[3] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch kernelmem_addr[2] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch kernelmem_addr[2] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[4] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch kernelmem_addr[3] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch kernelmem_addr[3] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionmem:instmem|altsyncram:altsyncram_component|altsyncram_5od1:auto_generated|q_a[5] File: F:/github/Computer_system_Verilog/Single-cycle CPU/db/altsyncram_5od1.tdf Line: 32
-Warning (13012): Latch kernelmem_addr[4] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 178
+Warning (13012): Latch kernelmem_addr[4] has unsafe behavior File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 179
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cpu:sc|cpu_control_single:control|aluimm File: F:/github/Computer_system_Verilog/Single-cycle CPU/cpu/cpu_control_single.v Line: 12
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[0]" is stuck at GND File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 21
@@ -2147,17 +2145,17 @@ Warning (21074): Design contains 23 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 62
     Warning (15610): No output dependent on input pin "ADC_DOUT" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 78
     Warning (15610): No output dependent on input pin "IRDA_RXD" File: F:/github/Computer_system_Verilog/Single-cycle CPU/exp12.v Line: 86
-Info (21057): Implemented 3378 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3380 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 32 input pins
     Info (21059): Implemented 112 output pins
     Info (21060): Implemented 24 bidirectional pins
-    Info (21061): Implemented 3002 logic cells
+    Info (21061): Implemented 3004 logic cells
     Info (21064): Implemented 208 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 310 warnings
-    Info: Peak virtual memory: 4870 megabytes
-    Info: Processing ended: Wed Dec 18 23:58:57 2019
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:33
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 309 warnings
+    Info: Peak virtual memory: 4873 megabytes
+    Info: Processing ended: Thu Dec 19 13:29:59 2019
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:32
 
 
 +------------------------------------------+

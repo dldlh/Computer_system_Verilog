@@ -47,8 +47,10 @@ assign m2reg = lw_c;
 assign shift = sll_c | srl_c | sra_c;
 assign aluimm = addi | andi | ori | xori |lw_c | lui_c | sw_c;
 assign sext = addi | lw_c | sw_c | beq_c | bne_c;
-assign aluc = {sra_c,{sub_c | or_c | srl_c | sra_c | ori | lui_c},{xori | sll_c | srl_c | sra_c | andi | ori},{and_c | or_c | sll_c | srl_c | sra_c | andi | ori}};
+assign aluc = {sra_c,{sub_c | or_c | srl_c | sra_c | ori | lui_c},{xor_c | sll_c | srl_c | sra_c | xori | beq_c | bne_c | lui_c},{and_c | or_c | sll_c | srl_c | sra_c | andi | ori}};
 assign wmem = sw_c;
-assign pcsource = {{jr_c | j_c | jal_c},{beq_c & z | bne_c & ~z | j_c | jal_c}};
+assign pcsource[1] = jr_c | j_c | jal_c;
+assign pcsource[0] = (beq_c & z) | (bne_c & ~z) | j_c | jal_c;
+//assign pcsource = {{jr_c | j_c | jal_c},{beq_c & z | bne_c & ~z | j_c | jal_c}};
 
 endmodule 
