@@ -10,7 +10,8 @@ module vga_top(
 	output		     [7:0]		VGA_R,
 	output		          		VGA_SYNC_N,
 	output		          		VGA_VS,
-	output			 [9:0]      inquire_addr
+	output			 [9:0]      inquire_addr,
+	output reg [7:0] ascii
 );
 	wire [4:0] row;
 	wire [6:0] col;
@@ -19,7 +20,7 @@ module vga_top(
 	wire [3:0] width;
 	wire [11:0] addr;
 	wire [11:0] temp;
-	reg [7:0] ascii; 
+	//reg [7:0] ascii; 
 	
 	clkgen #(25000000) my_vgaclk(CLOCK_50,~clrn,1'b1,VGA_CLK);	
 
@@ -51,10 +52,11 @@ vga_display v2(
 
 always @(*) begin
 	case(addr[1:0])
-		0: ascii = data[7:0];
-		1: ascii = data[15:8];
-		2: ascii = data[23:16];
-		3: ascii = data[31:24];
+		2'd0: ascii = data[7:0];
+		//2'd1: ascii = data[15:8];
+		//2'd2: ascii = data[23:16];
+		//2'd3: ascii = data[31:24];
+		default:ascii = data[7:0];
 	endcase
 end
 

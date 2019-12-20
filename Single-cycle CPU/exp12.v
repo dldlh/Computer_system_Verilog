@@ -102,8 +102,9 @@ always @ (posedge CLOCK_50)begin
 end
 wire memclk = cnt[0];
 wire cpuclk = cnt[3];
-
+wire clk10;
 clkgen #1 c1(CLOCK_50,1'b0,1'b1,clk1);
+clkgen #10 c10(CLOCK_50,1'b0,1'b1,clk10);
 
 wire cpuclk_hand = !KEY[1];
 //clk
@@ -151,12 +152,15 @@ reg [9:0]vga_addr;
 wire [31:0]vgamemout_cpu;
 wire [9:0] vga_inaddr;
 wire [31:0] vgamemout_vga;
-vga_top v(CLOCK_50,resetn,vgamemout_vga,VGA_BLANK_N,VGA_B,VGA_CLK,VGA_G,VGA_HS,VGA_R,VGA_SYNC_N,VGA_VS,vga_inaddr);
+wire [7:0] tempdebug;
+vga_top v(CLOCK_50,resetn,vgamemout_vga,VGA_BLANK_N,VGA_B,VGA_CLK,VGA_G,VGA_HS,VGA_R,VGA_SYNC_N,VGA_VS,vga_inaddr,tempdebug);
+//exp09 tempvga(CLOCK_50,VGA_CLK,VGA_HS,VGA_VS,VGA_SYNC_N,VGA_BLANK_N,VGA_R,VGA_G,VGA_B,vgamemout_vga,vga_inaddr);
 //vga
 
 //cpu sc(cpuclk,resetn,inst,memout,pc,wmem,aluout,data);
 //cpu sc(cpuclk_debug,resetn,inst,memout,pc,wmem,aluout,data);
-cpu sc(clk1,resetn,inst,memout,pc,wmem,aluout,data);
+//cpu sc(clk1,resetn,inst,memout,pc,wmem,aluout,data);
+cpu sc(clk10,resetn,inst,memout,pc,wmem,aluout,data);
 //cpu sc(clk1,resetn,inst,memout,pc,wmem,aluout,data,LEDR[9:8],LEDR[0]);
 //cpu sc(clk_hand,resetn,inst,memout,pc,wmem,aluout,data);
 
@@ -171,10 +175,16 @@ ledrmem lmem(.address_a(ledrmem_addr),.clock_a(memclk),.wren_a(ledrmem_enable),.
 keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(memclk),.q_a(keyboardmemout_cpu),.data_a(data),.clock_b(CLOCK_50),.wren_b(enable),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
 //keyboardmem kbmem(.address_a(0),.wren_a(0),.clock_a(memclk),.q_a(debugdata),.clock_b(CLOCK_50),.wren_b(1'b1),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
 //keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(CLOCK_50),.q_a(keyboardmemout_cpu),.clock_b(CLOCK_50),.wren_b(1'b1),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
+//keyboardmem kbmem(.address_a(0),.wren_a(0),.clock_a(memclk),.q_a(debugdata),.clock_b(CLOCK_50),.wren_b(enable),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
 
 
-vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(vgamemout_vga));
+//vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(vgamemout_vga));
 //vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(0),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(debugdata));
+//vgamem vmem(.address_a(0),.clock_a(memclk),.wren_a(1'b1),.data_a(32'h61),.address_b(0),.clock_b(CLOCK_50),.wren_b(1'b0),.q_b(vgamemout_vga));
+vgamem vmem(.address_a(0),.clock_a(memclk),.wren_a(1'b1),.data_a(32'h61),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(vgamemout_vga));
+//vgamem vmem(.address_a(0),.clock_a(memclk),.wren_a(1'b1),.data_a(32'h61),.address_b(vga_inaddr),.clock_b(CLOCK_50),.wren_b(1'b0),.q_b(vgamemout_vga));
+//vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(vgamemout_vga));
+//vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(in),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(debugdata));
 
 //MMIO
 always @ (*)begin
@@ -232,7 +242,9 @@ end
 //debug
 wire [3:0] in = SW[9:6];
 wire [31:0] debugdata;
-
+reg test_keyboard = 0;
+assign LEDR[9] = test_keyboard;
+assign LEDR[8] = enable;
 reg cpuclk_debug;
 /*
 turn7seg t1(1'b1,inst[31:28],HEX5);
@@ -252,8 +264,10 @@ turn7seg d2(1'b1,data[3:0],HEX4);
 turn7seg a2(1'b1,aluout[3:0],HEX1);
 turn7seg a1(1'b1,pc[5:2],HEX0);
 turn7seg a3(1'b1,aluout[7:4],HEX2);
-turn7seg d4(1'b1,debugdata[3:0],HEX3);
-turn7seg d5(1'b1,debugdata[7:4],HEX4);
+//turn7seg d4(1'b1,debugdata[3:0],HEX3);
+//turn7seg d5(1'b1,debugdata[7:4],HEX4);
+//turn7seg v0(1'b1,tempdebug[3:0],HEX4);
+//turn7seg v1(1'b1,tempdebug[7:4],HEX5);
 //turn7seg a4(1'b1,aluout[11:8],HEX3);
 //turn7seg a5(1'b1,aluout[15:12],HEX4);
 
@@ -266,6 +280,11 @@ turn7seg d5(1'b1,debugdata[7:4],HEX4);
 //assign LEDR[9:2] = debugdata[7:0];
 //assign LEDR[9:2] = ascii_kb;
 //assign LEDR[9:2] = memout[7:0];
+
+always @(debugdata)begin
+	if(debugdata !=32'b0)
+		test_keyboard = 1;
+end
 
 always @ (cpuclk)begin
 	if(pc == 32'h4)

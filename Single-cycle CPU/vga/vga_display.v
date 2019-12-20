@@ -1,5 +1,5 @@
 module vga_display(
-		output [23:0] vga_data,
+		output reg[23:0] vga_data,
 		input clk,
 		input valid,
 		input [3:0] height,
@@ -7,14 +7,20 @@ module vga_display(
 		input [7:0] ascii
 );
 
-		wire [10:0] raddress;
-		wire [10:0] temp;
+		wire [11:0] raddress;
+		wire [11:0] temp;
 		wire [11:0] rowdata;
 		wire pixel;
 		
 		vga_font read(raddress,clk,rowdata);
-		assign temp = ascii;
-		assign raddress = temp << 4 + height;
+		assign temp = {4'h0,ascii};
+		assign raddress = temp*16+ height;
 		assign pixel = rowdata[width];
-		assign vga_data = (pixel == 1)?24'hFFFFFF:24'h000000;
+		always @(*) 
+		if(valid) begin
+			if(pixel==1'b1)
+				vga_data=24'hFFFFFF;
+			else
+				vga_data=24'h000000;
+		end
 endmodule
