@@ -44,6 +44,7 @@ vga_ctrl v1(
 vga_display v2(
 			.vga_data(vga_data), 
 			.clk(CLOCK_50),
+			//.clk(VGA_CLK),
 			.valid(VGA_BLANK_N),
 			.height(height),  
 			.width(width),
@@ -53,15 +54,16 @@ vga_display v2(
 always @(*) begin
 	case(addr[1:0])
 		2'd0: ascii = data[7:0];
-		//2'd1: ascii = data[15:8];
-		//2'd2: ascii = data[23:16];
-		//2'd3: ascii = data[31:24];
+		2'd1: ascii = data[15:8];
+		2'd2: ascii = data[23:16];
+		2'd3: ascii = data[31:24];
 		default:ascii = data[7:0];
 	endcase
 end
 
 assign VGA_SYNC_N=0;
-assign temp = row; 
-assign addr = temp << 7 + col;
+assign temp = {{7'b0},row};
+//assign addr = temp << 7 + col;
+assign addr = temp * 70 + col;
 assign inquire_addr = addr[11:2];
 endmodule 

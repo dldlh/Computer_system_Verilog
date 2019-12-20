@@ -135,32 +135,73 @@ wire [31:0]ledrmemout_ledr;
 
 //keyboard
 reg keyboard_enable;
+reg state = 1'b1;
 reg keyboard_addr;
 wire [31:0]keyboardmemout_cpu;
 wire [7:0]ascii_kb;
 wire [7:0]tempout;
 wire enable;
+reg enable_mem;
 //kbd_top kb(CLOCK_50,resetn,PS2_CLK,PS2_DAT,ascii_kb);
 exp08 debug(CLOCK_50,KEY[3:0],SW[9:0],tempout,enable,PS2_CLK,PS2_CLK2,PS2_DAT,PS2_DAT2);
 assign ascii_kb = tempout & {{7{enable}},enable};
+
+always @ (posedge memclk)begin
+	if(enable == 0)begin
+		state <= 1;
+	end
+	if(state == 1)begin
+		enable_mem <= enable;
+		state <= 0;
+	end
+	else
+		enable_mem <= 0;
+end
+
+
 //keyboard
 
 //vga
-wire [31:0]ascii_vga;
+//wire [31:0]ascii_vga;
 reg vga_enable;
-reg [9:0]vga_addr;
+reg [11:0]vga_addr;
 wire [31:0]vgamemout_cpu;
-wire [9:0] vga_inaddr;
-wire [31:0] vgamemout_vga;
+wire [11:0] vga_inaddr;
+//wire [7:0]vgamemout_vga[3:0];
+wire [7:0]vgamemout_vga;
+//reg [7:0]ascii;
+
 wire [7:0] tempdebug;
-vga_top v(CLOCK_50,resetn,vgamemout_vga,VGA_BLANK_N,VGA_B,VGA_CLK,VGA_G,VGA_HS,VGA_R,VGA_SYNC_N,VGA_VS,vga_inaddr,tempdebug);
-//exp09 tempvga(CLOCK_50,VGA_CLK,VGA_HS,VGA_VS,VGA_SYNC_N,VGA_BLANK_N,VGA_R,VGA_G,VGA_B,vgamemout_vga,vga_inaddr);
+//wire [11:0]blockaddr;
+//assign vga_inaddr = blockaddr[11:2];
+//assign ascii = vgamemout_vga[blockaddr[1:0]];
+//vga_top v(CLOCK_50,resetn,vgamemout_vga,VGA_BLANK_N,VGA_B,VGA_CLK,VGA_G,VGA_HS,VGA_R,VGA_SYNC_N,VGA_VS,vga_inaddr,tempdebug);
+exp09 tempvga(CLOCK_50,VGA_CLK,VGA_HS,VGA_VS,VGA_SYNC_N,VGA_BLANK_N,VGA_R,VGA_G,VGA_B,vgamemout_vga,vga_inaddr);
+/*
+always @ (posedge memclk)begin
+	case(blockaddr[1:0])
+		2'b00:ascii <= vgamemout_vga[7:0];
+		2'b01:ascii <= vgamemout_vga[15:8];
+		2'b10:ascii <= vgamemout_vga[23:16];
+		2'b11:ascii <= vgamemout_vga[31:24];	
+	
+		2'b00:ascii = vgamemout_vga[31:24];
+		2'b01:ascii = vgamemout_vga[23:16];
+		2'b10:ascii = vgamemout_vga[15:8];
+		2'b11:ascii = vgamemout_vga[7:0];
+		
+	
+		default:;
+	endcase
+
+end
+*/
 //vga
 
-//cpu sc(cpuclk,resetn,inst,memout,pc,wmem,aluout,data);
+cpu sc(cpuclk,resetn,inst,memout,pc,wmem,aluout,data);
 //cpu sc(cpuclk_debug,resetn,inst,memout,pc,wmem,aluout,data);
 //cpu sc(clk1,resetn,inst,memout,pc,wmem,aluout,data);
-cpu sc(clk10,resetn,inst,memout,pc,wmem,aluout,data);
+//cpu sc(clk10,resetn,inst,memout,pc,wmem,aluout,data);
 //cpu sc(clk1,resetn,inst,memout,pc,wmem,aluout,data,LEDR[9:8],LEDR[0]);
 //cpu sc(clk_hand,resetn,inst,memout,pc,wmem,aluout,data);
 
@@ -172,7 +213,7 @@ clockmem cmem(.address_a(clockmem_addr),.clock_a(memclk),.wren_a(clockmem_enable
 
 ledrmem lmem(.address_a(ledrmem_addr),.clock_a(memclk),.wren_a(ledrmem_enable),.data_a(data),.address_b(1'b0),.clock_b(CLOCK_50),.wren_b(1'b0),.q_a(ledrmemout_cpu),.q_b(ledrmemout_ledr));
 
-keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(memclk),.q_a(keyboardmemout_cpu),.data_a(data),.clock_b(CLOCK_50),.wren_b(enable),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
+keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(memclk),.q_a(keyboardmemout_cpu),.data_a(data),.clock_b(CLOCK_50),.wren_b(enable_mem),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
 //keyboardmem kbmem(.address_a(0),.wren_a(0),.clock_a(memclk),.q_a(debugdata),.clock_b(CLOCK_50),.wren_b(1'b1),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
 //keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(CLOCK_50),.q_a(keyboardmemout_cpu),.clock_b(CLOCK_50),.wren_b(1'b1),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
 //keyboardmem kbmem(.address_a(0),.wren_a(0),.clock_a(memclk),.q_a(debugdata),.clock_b(CLOCK_50),.wren_b(enable),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
@@ -181,10 +222,14 @@ keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(me
 //vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(vgamemout_vga));
 //vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(0),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(debugdata));
 //vgamem vmem(.address_a(0),.clock_a(memclk),.wren_a(1'b1),.data_a(32'h61),.address_b(0),.clock_b(CLOCK_50),.wren_b(1'b0),.q_b(vgamemout_vga));
-vgamem vmem(.address_a(0),.clock_a(memclk),.wren_a(1'b1),.data_a(32'h61),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(vgamemout_vga));
+//vgamem vmem(.address_a(0),.clock_a(memclk),.wren_a(1'b1),.data_a(32'h61),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(vgamemout_vga));
 //vgamem vmem(.address_a(0),.clock_a(memclk),.wren_a(1'b1),.data_a(32'h61),.address_b(vga_inaddr),.clock_b(CLOCK_50),.wren_b(1'b0),.q_b(vgamemout_vga));
 //vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(vgamemout_vga));
+//vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b({vgamemout_vga[2'd3],vgamemout_vga[2'd2],vgamemout_vga[2'd1],vgamemout_vga[3'd0]}));
+//vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b({vgamemout_vga[2'd3],vgamemout_vga[2'd2],vgamemout_vga[2'd1],vgamemout_vga[3'd0]}));
+vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data[7:0]),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(vgamemout_vga));
 //vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(in),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(debugdata));
+
 
 //MMIO
 always @ (*)begin
@@ -204,7 +249,7 @@ always @ (*)begin
 			keyboard_enable = 0;
 			ledrmem_enable = 0;
 			vga_enable = wmem;
-			vga_addr = aluout[11:2];
+			vga_addr = aluout[11:0];
 		end
 		3'b010:begin//键盘
 			keyboard_enable = wmem;
@@ -244,7 +289,7 @@ wire [3:0] in = SW[9:6];
 wire [31:0] debugdata;
 reg test_keyboard = 0;
 assign LEDR[9] = test_keyboard;
-assign LEDR[8] = enable;
+assign LEDR[8] = enable_mem;
 reg cpuclk_debug;
 /*
 turn7seg t1(1'b1,inst[31:28],HEX5);

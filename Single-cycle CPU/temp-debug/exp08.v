@@ -60,7 +60,6 @@ module exp08(
 			begin
 				cnt <= cnt + 1;
 				flag <= 1;
-				state <= 1;
 			end
 			else
 			begin
@@ -73,15 +72,7 @@ module exp08(
 				end
 				
 				else
-				begin
-				
-					if(state == 1)begin
-						enable <= 1;
-						state <= 0;
-					end
-					else
-						enable <= 0;
-				end	
+					enable <= 1;
 			end
 		end
 		
