@@ -90,6 +90,7 @@ module exp12(
 
 wire [31:0] data,inst,pc,aluout;
 reg [31:0] memout;
+
 wire resetn = KEY[0];
 wire wmem;
 reg inst_e;
@@ -116,7 +117,7 @@ wire [31:0]clock_data;
 wire clock_addr;
 wire [31:0]clockmem_cpu;
 
-e_clock ec(CLOCK_50,resetn,!KEY[1],SW[1:0],SW[5:2],clock_data);
+e_clock ec(CLOCK_50,resetn,!KEY[1],SW[2:1],SW[6:3],clock_data);
 //clock
 
 //kernel
@@ -143,60 +144,54 @@ wire [7:0]tempout;
 wire enable;
 reg enable_mem;
 //kbd_top kb(CLOCK_50,resetn,PS2_CLK,PS2_DAT,ascii_kb);
-exp08 debug(CLOCK_50,KEY[3:0],SW[9:0],tempout,enable,PS2_CLK,PS2_CLK2,PS2_DAT,PS2_DAT2);
+exp08 keyboard(CLOCK_50,KEY[3:0],{SW[9:1],1'b1},tempout,enable,PS2_CLK,PS2_CLK2,PS2_DAT,PS2_DAT2);
 assign ascii_kb = tempout & {{7{enable}},enable};
 
-always @ (posedge memclk)begin
+//always @ (enable)begin
+always @ (negedge memclk)begin
+//always @ (negedge cpuclk)begin
 	if(enable == 0)begin
 		state <= 1;
-	end
-	if(state == 1)begin
-		enable_mem <= enable;
-		state <= 0;
-	end
-	else
 		enable_mem <= 0;
+	end
+	else begin
+		if(state == 1)begin
+			enable_mem <= enable;
+			state <= 0;
+		end
+		else
+			enable_mem <= 0;
+	end
 end
 
 
 //keyboard
 
 //vga
-//wire [31:0]ascii_vga;
 reg vga_enable;
+wire vgasource;
+
+
+assign LEDR[0] = vgasource;
+//assign LEDR[1] = vgastate;
 reg [11:0]vga_addr;
+
 wire [31:0]vgamemout_cpu;
 wire [11:0] vga_inaddr;
-//wire [7:0]vgamemout_vga[3:0];
 wire [7:0]vgamemout_vga;
-//reg [7:0]ascii;
-
 wire [7:0] tempdebug;
-//wire [11:0]blockaddr;
-//assign vga_inaddr = blockaddr[11:2];
-//assign ascii = vgamemout_vga[blockaddr[1:0]];
-//vga_top v(CLOCK_50,resetn,vgamemout_vga,VGA_BLANK_N,VGA_B,VGA_CLK,VGA_G,VGA_HS,VGA_R,VGA_SYNC_N,VGA_VS,vga_inaddr,tempdebug);
-exp09 tempvga(CLOCK_50,VGA_CLK,VGA_HS,VGA_VS,VGA_SYNC_N,VGA_BLANK_N,VGA_R,VGA_G,VGA_B,vgamemout_vga,vga_inaddr);
-/*
-always @ (posedge memclk)begin
-	case(blockaddr[1:0])
-		2'b00:ascii <= vgamemout_vga[7:0];
-		2'b01:ascii <= vgamemout_vga[15:8];
-		2'b10:ascii <= vgamemout_vga[23:16];
-		2'b11:ascii <= vgamemout_vga[31:24];	
-	
-		2'b00:ascii = vgamemout_vga[31:24];
-		2'b01:ascii = vgamemout_vga[23:16];
-		2'b10:ascii = vgamemout_vga[15:8];
-		2'b11:ascii = vgamemout_vga[7:0];
-		
-	
-		default:;
-	endcase
+exp09 vga(CLOCK_50,VGA_CLK,VGA_HS,VGA_VS,VGA_SYNC_N,VGA_BLANK_N,VGA_R,VGA_G,VGA_B,vgamemout_vga,vga_inaddr,vgasource);
+//exp09 vga(CLOCK_50,VGA_CLK,VGA_HS,VGA_VS,VGA_SYNC_N,VGA_BLANK_N,VGA_R,VGA_G,VGA_B,vgamemout_vga,vga_inaddr,1'b0);
+//exp09 vga(CLOCK_50,VGA_CLK,VGA_HS,VGA_VS,VGA_SYNC_N,VGA_BLANK_N,VGA_R,VGA_G,VGA_B,vgamemout_vga,vga_inaddr,1'b1);
 
-end
-*/
 //vga
+
+//screen
+reg screen_addr;
+reg screen_enable;
+wire [31:0]screen32;
+assign vgasource = screen32[0];
+//screen
 
 cpu sc(cpuclk,resetn,inst,memout,pc,wmem,aluout,data);
 //cpu sc(cpuclk_debug,resetn,inst,memout,pc,wmem,aluout,data);
@@ -210,11 +205,12 @@ instructionmem instmem(.inclock(memclk),.address(pc[11:2]),.q(inst),.outclock(me
 kernelmem kemem(.address_a(kernelmem_addr),.clock_a(memclk),.q_a(kernelmemout_cpu),.data_a(data),.wren_a(kernelmem_enable));//操作系统内核使用的内存
 
 clockmem cmem(.address_a(clockmem_addr),.clock_a(memclk),.wren_a(clockmem_enable),.data_a(data),.q_a(clockmem_cpu),.address_b(1'b0),.data_b(clock_data),.wren_b(1),.clock_b(clk1));
+//clockmem cmem(.address_a(0),.clock_a(memclk),.wren_a(0),.q_a(debugdata),.address_b(1'b0),.data_b(clock_data),.wren_b(1),.clock_b(clk1));
 
 ledrmem lmem(.address_a(ledrmem_addr),.clock_a(memclk),.wren_a(ledrmem_enable),.data_a(data),.address_b(1'b0),.clock_b(CLOCK_50),.wren_b(1'b0),.q_a(ledrmemout_cpu),.q_b(ledrmemout_ledr));
 
-keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(memclk),.q_a(keyboardmemout_cpu),.data_a(data),.clock_b(CLOCK_50),.wren_b(enable_mem),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
-//keyboardmem kbmem(.address_a(0),.wren_a(0),.clock_a(memclk),.q_a(debugdata),.clock_b(CLOCK_50),.wren_b(1'b1),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
+keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(memclk),.q_a(keyboardmemout_cpu),.data_a(data),.clock_b(memclk),.wren_b(enable_mem),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
+//keyboardmem kbmem(.address_a(0),.wren_a(0),.clock_a(memclk),.q_a(debugdata),.clock_b(memclk),.wren_b(enable_mem),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
 //keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(CLOCK_50),.q_a(keyboardmemout_cpu),.clock_b(CLOCK_50),.wren_b(1'b1),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
 //keyboardmem kbmem(.address_a(0),.wren_a(0),.clock_a(memclk),.q_a(debugdata),.clock_b(CLOCK_50),.wren_b(enable),.address_b(1'b0),.data_b({{24{1'b0}},ascii_kb}));
 
@@ -230,6 +226,7 @@ keyboardmem kbmem(.address_a(keyboard_addr),.wren_a(keyboard_enable),.clock_a(me
 vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data[7:0]),.address_b(vga_inaddr),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(vgamemout_vga));
 //vgamem vmem(.address_a(vga_addr),.clock_a(memclk),.wren_a(vga_enable),.data_a(data),.address_b(in),.clock_b(VGA_CLK),.wren_b(1'b0),.q_b(debugdata));
 
+scrennmem smem(.address_a(screen_addr),.clock_a(memclk),.wren_a(screen_enable),.data_a(data),.address_b(0),.wren_b(0),.q_b(screen32),.clock_b(memclk));
 
 //MMIO
 always @ (*)begin
@@ -242,12 +239,14 @@ always @ (*)begin
 			keyboard_enable = 0;
 			ledrmem_enable = 0;
 			vga_enable = 0;
+			screen_enable = 0;
 		end
 		3'b001:begin//显存
 			clockmem_enable = 0;
 			kernelmem_enable = 0;
 			keyboard_enable = 0;
 			ledrmem_enable = 0;
+			screen_enable = 0;
 			vga_enable = wmem;
 			vga_addr = aluout[11:0];
 		end
@@ -256,6 +255,7 @@ always @ (*)begin
 			kernelmem_enable = 0;
 			clockmem_enable = 0;
 			ledrmem_enable = 0;
+			screen_enable = 0;
 			vga_enable = 0;
 			keyboard_addr = aluout[0];
 			memout = keyboardmemout_cpu;
@@ -265,6 +265,7 @@ always @ (*)begin
 			kernelmem_enable = 0;
 			clockmem_addr = aluout[0];
 			vga_enable = 0;
+			screen_enable = 0;
 			ledrmem_enable = 0;
 			keyboard_enable = 0;
 			memout = clockmem_cpu;
@@ -275,8 +276,17 @@ always @ (*)begin
 			kernelmem_enable = 0;
 			keyboard_enable = 0;
 			clockmem_enable = 0;
+			screen_enable = 0;
 			vga_enable = 0;
 			memout  = ledrmemout_cpu;
+		end
+		3'b101:begin//选择是否显示屏保
+			screen_enable = wmem;
+			kernelmem_enable = 0;
+			keyboard_enable = 0;
+			clockmem_enable = 0;
+			vga_enable = 0;
+			ledrmem_enable = 0;
 		end
 		default:;
 	endcase
@@ -288,8 +298,8 @@ end
 wire [3:0] in = SW[9:6];
 wire [31:0] debugdata;
 reg test_keyboard = 0;
-assign LEDR[9] = test_keyboard;
-assign LEDR[8] = enable_mem;
+//assign LEDR[9] = test_keyboard;
+//assign LEDR[8] = enable_mem;
 reg cpuclk_debug;
 /*
 turn7seg t1(1'b1,inst[31:28],HEX5);
@@ -306,11 +316,15 @@ turn7seg mem(1'b1,memout[3:0],HEX2);
 turn7seg d(1'b1,memout[7:4],HEX3);
 turn7seg d2(1'b1,data[3:0],HEX4);
 */
-turn7seg a2(1'b1,aluout[3:0],HEX1);
-turn7seg a1(1'b1,pc[5:2],HEX0);
-turn7seg a3(1'b1,aluout[7:4],HEX2);
-//turn7seg d4(1'b1,debugdata[3:0],HEX3);
-//turn7seg d5(1'b1,debugdata[7:4],HEX4);
+//turn7seg a2(1'b1,aluout[3:0],HEX1);
+//turn7seg a1(1'b1,pc[5:2],HEX0);
+//turn7seg a3(1'b1,aluout[7:4],HEX2);
+turn7seg d4(1'b1,debugdata[3:0],HEX0);
+turn7seg d5(1'b1,debugdata[7:4],HEX1);
+turn7seg d6(1'b1,debugdata[11:8],HEX2);
+turn7seg d7(1'b1,debugdata[15:12],HEX3);
+turn7seg d8(1'b1,debugdata[19:16],HEX4);
+turn7seg d9(1'b1,debugdata[23:20],HEX5);
 //turn7seg v0(1'b1,tempdebug[3:0],HEX4);
 //turn7seg v1(1'b1,tempdebug[7:4],HEX5);
 //turn7seg a4(1'b1,aluout[11:8],HEX3);

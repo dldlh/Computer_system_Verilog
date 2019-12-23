@@ -1,5 +1,5 @@
 Assembler report for exp12
-Fri Dec 20 12:30:46 2019
+Sun Dec 22 22:27:47 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Dec 20 12:30:46 2019 ;
+; Assembler Status      ; Successful - Sun Dec 22 22:27:47 2019 ;
 ; Revision Name         ; exp12                                 ;
 ; Top-level Entity Name ; exp12                                 ;
 ; Family                ; Cyclone V                             ;
@@ -66,8 +66,8 @@ refer to the applicable agreement for further details.
 +----------------+-----------------------------------------------------------------------+
 ; Option         ; Setting                                                               ;
 +----------------+-----------------------------------------------------------------------+
-; JTAG usercode  ; 0x01501600                                                            ;
-; Checksum       ; 0x01501600                                                            ;
+; JTAG usercode  ; 0x019D42BF                                                            ;
+; Checksum       ; 0x019D42BF                                                            ;
 +----------------+-----------------------------------------------------------------------+
 
 
@@ -77,14 +77,14 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Fri Dec 20 12:30:39 2019
+    Info: Processing started: Sun Dec 22 22:27:39 2019
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off exp12 -c exp12
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4868 megabytes
-    Info: Processing ended: Fri Dec 20 12:30:47 2019
+    Info: Peak virtual memory: 4881 megabytes
+    Info: Processing ended: Sun Dec 22 22:27:47 2019
     Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Total CPU time (on all processors): 00:00:08
 
 
